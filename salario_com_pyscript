@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script> 
+</head>
+
+<body>
+
+<py-script>
+
+valorhora = int(input("Informe o valor de quanto recebe por hora: "))
+horasmes = int(input("Informe a quantidade de horas trabalhadas no mês: "))
+
+resultado = valorhora * horasmes
+
+print(f"Baseado no valor ganho por hora de R$ {valorhora}, multiplicado pela quantidade de horas trabalhadas no mês, seu salário referente ao mês passado é de R$ {resultado} ")
+
+
+</py-script>
+
+</body>
+
+</html>

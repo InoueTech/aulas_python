@@ -1,24 +1,64 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-<script defer src="https://pyscript.net/latest/pyscript.js"></script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://cdn.discordapp.com/attachments/809963982282555392/1147701332371836998/pexels-olia-danilevich-5466810.jpg'); /* Adicione o caminho para a sua imagem de fundo aqui */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: white; /* Para melhor visibilidade do texto na imagem de fundo */
+        }
+
+        #container {
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para legibilidade */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        #container h1 {
+            color: #ff9900; /* Cor de destaque para o título */
+        }
+
+        #container input[type="number"],
+        #container button {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            width: 80%;
+        }
+    </style>
 </head>
-
 <body>
+    <div id="container">
+        <h1>Calculadora de Salário</h1>
+        <label for="valorHora">Valor da Hora Trabalhada (R$):</label>
+        <input type="number" id="valorHora" step="0.01">
+        <br>
+        <label for="horasMes">Horas Trabalhadas no Mês:</label>
+        <input type="number" id="horasMes">
+        <br>
+        <button onclick="calcularSalario()">Calcular Salário</button>
+        <br>
+        <p id="resultado"></p>
+    </div>
 
-<py-script>
-
-valorhora = int(input("Informe o valor de quanto recebe por hora: "))
-horasmes = int(input("Informe a quantidade de horas trabalhadas no mês: "))
-
-resultado = valorhora * horasmes
-
-print(f"Baseado no valor ganho por hora de R$ {valorhora}, multiplicado pela quantidade de horas trabalhadas no mês, seu salário referente ao mês passado é de R$ {resultado} ")
-
-
-</py-script>
-
+    <script>
+        function calcularSalario() {
+            const valorHora = parseFloat(document.getElementById("valorHora").value);
+            const horasMes = parseFloat(document.getElementById("horasMes").value);
+            const resultado = valorHora * horasMes;
+            const resultadoElement = document.getElementById("resultado");
+            resultadoElement.textContent = `Baseado no valor ganho por hora de R$ ${valorHora.toFixed(2)}, multiplicado pela quantidade de horas trabalhadas no mês, seu salário referente ao mês passado é de R$ ${resultado.toFixed(2)}`;
+        }
+    </script>
 </body>
-
 </html>
